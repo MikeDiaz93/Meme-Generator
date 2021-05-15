@@ -1,4 +1,5 @@
 import os
+from abc import abstractmethod
 
 from ingestors.ingestor_interface import IngestorInterface, extensions
 from ingestors.csv_ingestor import CsvIngestor
@@ -15,23 +16,23 @@ class Ingestor(IngestorInterface):
 
     Attributes
     ----------
-    IngestorInterface : str
+    IngestorInterface
 
-    Methods 
+    Methods
     -------
     parse
     """
     @classmethod
     def parse(cls, path):
         """
-        Parameters 
+        Parameters
         ----------
-        cls: str 
+        cls: self
         path: str
 
-        Returns 
+        Returns
         -------
-        A parsed text, docx, pdf or csv.   
+        A parsed text, docx, pdf or csv.
         """
         file_name, file_extension = os.path.splitext(path)
         if not cls.verify(file_extension):

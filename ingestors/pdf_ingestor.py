@@ -1,5 +1,6 @@
 import os
 import subprocess
+from abc import abstractmethod
 
 from ingestors.ingestor_interface import IngestorInterface
 from ingestors.text_ingestor import TextIngestor
@@ -11,21 +12,16 @@ class PdfIngestor(IngestorInterface):
 
     ...
 
-    Attributes
-    ----------
-    IngestorInterface: str
-
     Methods
     -------
     parse
     """
-
     @classmethod
     def parse(cls, path):
         """
         Parameters
         ----------
-        cls: str
+        cls: self
         path: str
 
         Returns

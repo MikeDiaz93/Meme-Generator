@@ -1,5 +1,6 @@
 from ingestors.ingestor_interface import IngestorInterface
 from models import QuoteModel
+from abc import abstractmethod
 
 
 class TextIngestor(IngestorInterface):
@@ -8,25 +9,22 @@ class TextIngestor(IngestorInterface):
 
     ...
 
-    Attributes
-    ----------
-    IngestorInterface: str
-
     Methods
     -------
     parse
     """
+
     @classmethod
     def parse(cls, path):
         """
         Parameters
         ----------
-        cls: str
+        cls: self
         path: str
 
         Returns
         ------
-        parse from the text file.
+        Parse from the text file.
         """
         file = open(path, 'r', encoding='utf-8-sig')
         lines = file.readlines()

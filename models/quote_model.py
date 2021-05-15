@@ -4,10 +4,6 @@ class QuoteModel():
 
     ...
 
-    Attributes
-    ----------
-    Nothing
-
     Methods
     -------
     """

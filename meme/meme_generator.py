@@ -20,7 +20,7 @@ def generate_meme(path=None, body=None, author=None):
     -------
     A path where the meme is created.
     """
-
+    print(path)
     if path is None:
         images_dir = './_data/photos/dog/'
         images = []

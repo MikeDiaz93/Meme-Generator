@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 extensions = {
     "TEXT": ".txt",
     "CSV": ".csv",
@@ -6,15 +8,11 @@ extensions = {
 }
 
 
-class IngestorInterface():
+class IngestorInterface(ABC):
     """
     A class that represents an Ingestor Interface.
 
     ...
-
-    Attributes
-    ----------
-    Nothing
 
     Methods
     -------
@@ -30,7 +28,7 @@ class IngestorInterface():
 
         Parameters
         ----------
-        cls: str
+        cls: self
         file_extension: str
 
         Returns
@@ -39,14 +37,14 @@ class IngestorInterface():
         """
         return file_extension in extensions.values()
 
-    @classmethod
+    @abstractmethod
     def parse(cls, path):
         """
         Let child classes do their own implementation.
 
         Parameters
         ----------
-        cls: str
+        cls: self
         path: str
 
         """
