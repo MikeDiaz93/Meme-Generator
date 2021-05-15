@@ -7,18 +7,13 @@ from ingestors import Ingestor
 from models import QuoteModel
 from meme.meme_generator import generate_meme
 
-
 if __name__ == "__main__":
-    args = sys.argv
-    obj = {}
-    for i in range(len(args)):
-        try:
-            if args[i] == '--body':
-                obj['body'] = args[i+1]
-            if args[i] == '--path':
-                obj['path'] = args[i+1]
-            if args[i] == '--author':
-                obj['author'] = args[i+1]
-        except:
-            pass
-    print(generate_meme(obj["path"], obj["body"], obj["author"]))
+    parser = argparse.ArgumentParser(description='create a meme')
+    parser.add_argument('--path', type=str, default=None,
+                        help='path to an image file')
+    parser.add_argument('--body', type=str, default=None,
+                        help='quote body to add to the image')
+    parser.add_argument('--author', type=str, default=None,
+                        help='quote author to add to the image')
+    args = parser.parse_args()
+    print(generate_meme(args.path, args.body, args.author))
