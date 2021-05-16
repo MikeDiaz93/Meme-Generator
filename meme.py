@@ -1,6 +1,7 @@
 import os
 import random
 import sys
+import argparse
 
 from meme import MemeEngine
 from ingestors import Ingestor
